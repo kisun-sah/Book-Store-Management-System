@@ -1,9 +1,19 @@
 /* eslint-disable no-unused-vars */
+import Banner from "../components/Home/Banner"
 import React from 'react';
+import RecentlyAdded from "../components/Home/RecentlyAdded";
 
 function Home() {
   return (
-    <div className='bg-green-500 min-h-screen mt-5 p-6'>
+   
+    <div className=' min-h-screen mt-5 p-6'>
+       <Banner/>
+
+       <RecentlyAdded/>
+
+
+
+       
       {/* Header Section */}
       <header className='text-center py-8'>
         <h1 className='text-4xl font-bold text-white'>Welcome to BookStorePro</h1>

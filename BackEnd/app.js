@@ -1,15 +1,10 @@
-// Importing required modules
 const express = require("express");
 const dotenv = require("dotenv");
-
-// Configure environment variables
 dotenv.config();
-
-// Initialize Express app
 const app = express();
-
-// Import database connection
+const cors = require("cors");
 require("./connection/conn");
+
 
 // Import routes
 const userRoutes = require("./routes/user");
@@ -18,6 +13,7 @@ const favourateRoutes = require("./routes/favourate");
 const cartRoutes = require("./routes/cart");
 const orderRoutes = require("./routes/order")
 
+app.use(cors());
 // Middleware to parse JSON requests
 app.use(express.json());
 

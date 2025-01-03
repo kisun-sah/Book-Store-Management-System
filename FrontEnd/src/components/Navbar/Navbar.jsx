@@ -11,25 +11,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
+    <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white shadow-lg fixed w-full top-0 z-50">
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
           <FiBook className="text-3xl mr-2 text-yellow-500" />
           <span className="text-2xl font-bold text-yellow-500">BookStore</span>
         </Link>
-
-        {/* Search Bar */}
-        <div className="hidden md:flex items-center bg-white text-black rounded-full px-4 py-2 w-1/3 hover:shadow-md transition-all">
-          <input
-            type="text"
-            placeholder="Search books..."
-            className="flex-grow px-2 focus:outline-none"
-          />
-          <button className="bg-blue-600 text-white px-5 py-1 rounded-full hover:bg-blue-700 transition-all">
-            Search
-          </button>
-        </div>
 
         {/* Mobile Menu Toggle */}
         <button
@@ -39,39 +27,43 @@ const Navbar = () => {
           {isMobileMenuOpen ? <AiOutlineClose /> : <AiOutlineMenu />}
         </button>
 
-
-       {/* Navigation Links */}
-<ul className="hidden md:flex space-x-6 text-lg font-medium">
-  {["Home", "All Books", "About", "Profile"].map((item, index) => (
-    <li key={index}>
-      <Link
-        to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
-        className="hover:text-yellow-400 transition-colors"
-      >
-        {item}
-      </Link>
-    </li>
-  ))}
-</ul>
-
+      
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center space-x-4">
-          <Link
-            to="/signup"
-            className="bg-green-500 px-4 py-2 rounded-full hover:bg-green-600 transition-colors"
-          >
-            Sign Up
-          </Link>
-          <Link
+        <div className="hidden md:flex items-center space-x-6">
+            {/* Navigation Links */}
+        <ul className="hidden md:flex space-x-8 text-lg font-medium">
+          {["Home", "All Books",  "Profile", ].map((item, index) => (
+            <li key={index}>
+              <Link
+                to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                className="hover:text-yellow-400 transition-colors"
+              >
+                {item}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+
+
+        <Link
             to="/login"
-            className="bg-red-500 px-4 py-2 rounded-full hover:bg-red-600 transition-colors"
+            className="px-5 py-2  transition-colors font-medium"
           >
             Log In
           </Link>
+
+          <Link
+            to="/signup"
+            className="px-5 py-2  bg-gray-600  transition-colors font-medium"
+          >
+            Sign Up
+          </Link>
+        
           <Link
             to="/cart"
-            className="bg-yellow-500 px-4 py-2 rounded-full hover:bg-yellow-600 transition-colors"
+            className="px-5 py-2  bg-gray-700 transition-colors font-medium"
           >
             Cart (0)
           </Link>
@@ -95,7 +87,7 @@ const Navbar = () => {
             {["Home", "All Books", "About", "Profile"].map((item, index) => (
               <li key={index}>
                 <Link
-                  to={`/${item.toLowerCase().replace(" ", "-")}`}
+                  to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
                   className="hover:text-yellow-400 block text-center py-2"
                   onClick={toggleMobileMenu}
                 >
@@ -106,7 +98,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/signup"
-                className="bg-green-500 px-4 py-2 rounded-full hover:bg-green-600 block text-center transition-all"
+                className="bg-green-500 px-5 py-2 rounded-full hover:bg-green-600 block text-center transition-all"
                 onClick={toggleMobileMenu}
               >
                 Sign Up
@@ -115,7 +107,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/login"
-                className="bg-red-500 px-4 py-2 rounded-full hover:bg-red-600 block text-center transition-all"
+                className="bg-red-500 px-5 py-2 rounded-full hover:bg-red-600 block text-center transition-all"
                 onClick={toggleMobileMenu}
               >
                 Log In
@@ -124,7 +116,7 @@ const Navbar = () => {
             <li>
               <Link
                 to="/cart"
-                className="bg-yellow-500 px-4 py-2 rounded-full hover:bg-yellow-600 block text-center transition-all"
+                className="bg-yellow-500 px-5 py-2 rounded-full hover:bg-yellow-600 block text-center transition-all"
                 onClick={toggleMobileMenu}
               >
                 Cart (0)
